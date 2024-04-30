@@ -16,7 +16,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <div className="min-h-screen flex flex-col items-center justify-center">
+        <div className="min-h-screen flex flex-col items-center justify-center max-w-screen-lg mx-auto">
           {children}
         </div>
       </body>

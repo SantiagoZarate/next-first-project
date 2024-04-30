@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { Post } from "types";
 
 type PostPageProps = {
@@ -10,9 +11,14 @@ export default async function PostId({ params }: PostPageProps) {
   const post = await fetch("https://dummyjson.com/posts/" + params.id);
   const data: Post = await post.json();
 
+  if (!data.title) {
+    return notFound();
+  }
+
   return (
-    <div>
-      <h1>{data.title}</h1>
+    <div className="flex flex-col gap-6">
+      <h1 className="mx-auto text-lg capitalize font-bold">{data.title}</h1>
+      <p className="">{data.body}</p>
     </div>
   );
 }
