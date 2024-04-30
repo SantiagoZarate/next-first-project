@@ -1,15 +1,16 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+import { type NextRequest } from "next/server";
 
-export function middleware(request: NextResponse) {
+export const config = {
+  matcher: ["/about/:path", "/about"],
+};
+
+export function middleware(request: NextRequest) {
   const isAuthenticated = false;
-  console.log(request.headers);
 
   if (!isAuthenticated) {
     return NextResponse.redirect("/login");
   }
 
-  NextResponse.next();
+  return NextResponse.next();
 }
-export const config = {
-  mathcers: ["/about"],
-};
