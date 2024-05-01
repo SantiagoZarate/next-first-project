@@ -8,6 +8,7 @@ type PostPageProps = {
 };
 
 export default async function PostId({ params }: PostPageProps) {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const post = await fetch("https://dummyjson.com/posts/" + params.id);
   const data: Post = await post.json();
 

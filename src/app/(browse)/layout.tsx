@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { PropsWithChildren } from "react";
 import { Header } from "@/components/common/header";
 
@@ -16,7 +16,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <div className="min-h-screen flex flex-col items-center justify-center max-w-screen-lg mx-auto">
+        <div className="min-h-screen flex flex-col items-center justify-center max-w-screen-lg mx-auto px-8">
           {children}
         </div>
       </body>

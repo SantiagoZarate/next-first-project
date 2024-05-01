@@ -6,4 +6,9 @@ export const formSchema = z.object({
   }),
 });
 
+export const passwordSchema = formSchema.extend({
+  password: z.string().min(5, "Password must be at least 5 characters"),
+});
+
 export type FormSchemaType = z.infer<typeof formSchema>;
+export type RegisterSchemaType = z.infer<typeof passwordSchema>;
